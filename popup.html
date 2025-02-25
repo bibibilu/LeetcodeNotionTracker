@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Sync to Notion</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Arial", sans-serif;
+    }
+    body {
+      background-color: #f8f9fa;
+      width: 380px;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+    }
+    h1 {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    textarea {
+      width: 100%;
+      height: 80px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: none;
+      font-size: 14px;
+    }
+    .radio-group, .select-group {
+      margin-top: 12px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .radio-group label, .select-group label {
+      font-size: 14px;
+      cursor: pointer;
+    }
+    select {
+      width: 50%;
+      padding: 4px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    button.code-btn {
+      background-color: #28a745; /* 绿色背景 */
+      margin-top: 8px;
+    }
+
+    button.code-btn:hover {
+      background-color: #218838;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>📌 Sync to Notion</h1>
+
+  <textarea id="comment" placeholder="Notes..."></textarea>
+
+  <div class="select-group">
+    <label>刷度：</label>
+    <select id="practiceStatus">
+      <option value="待刷">待刷</option>
+      <option value="一刷">一刷</option>
+      <option value="二刷">二刷</option>
+      <option value="三刷">三刷</option>
+      <option value="四刷">四刷</option>
+      <option value="无需再刷">无需再刷</option>
+    </select>
+  </div>
+
+  <div class="select-group">
+    <label>熟练度：</label>
+    <select id="proficiency">
+      <option value="">----</option>
+      <option value="🤒理解hard">🤒理解hard</option>
+      <option value="🧐待提升解法">🧐待提升解法</option>
+      <option value="😳思路messy/forgot">😳思路messy/forgot</option>
+      <option value="🤔思路ok实现slow">🤔思路ok实现slow</option>
+      <option value="🤗思路ok实现ok">🤗思路ok实现ok</option>
+      <option value="🥱炉火纯青">🥱炉火纯青</option>
+    </select>
+  </div>
+
+  <button id="syncBtn">🔄 Sync</button>
+  <button id="syncCodeBtn" class="code-btn">🔄 Code</button>
+  <script src="popup.js"></script>
+</body>
+</html>

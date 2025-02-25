@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "Sync Leetcode Notes and code to Notion",
+  "version": "1.0",
+  "description": "Sync leetcode to Notion",
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Sync to Notion",
+    "default_icon": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": ["https://api.notion.com/v1/pages/"],
+  "content_scripts": [
+    {
+      "matches": ["https://*.leetcode.com/problems/*", "https://*.lintcode.com/*", "https://leetcode.com/problems/*", "https://lintcode.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "commands": {
+    "_execute_action": {
+      "suggested_key": "Ctrl+Shift+Y"
+    }
+  }
+}
